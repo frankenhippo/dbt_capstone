@@ -1,0 +1,95 @@
+
+version: 2
+
+models:
+  - name: bronze_customers
+    description: "Imported customer records"
+    columns:
+      - name: customer_id
+        description: "The primary key for this table"
+        data_tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+
+  - name: bronze_products
+    description: "Imported customer records"
+    columns:
+      - name: product_id
+        description: "The primary key for this table"
+        data_tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: product_name
+        description: "The product name"
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+      - name: product_category
+        description: "The product category (store department)"
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+      - name: unit_price
+        description: "The product's unit price'"
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+
+  - name: bronze_orders
+    description: "Imported order records"
+    columns:
+      - name: order_id
+        description: "The primary key for this table"
+        data_tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: customer_id
+        description: "Foreign key referencing bronze_customers"
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+      - name: product_id
+        description: "Foreign key referencing bronze_products"
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+      - name: order_date
+        description: "Date the order was placed"
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+      - name: quantity
+        description: "Quantity purchased"
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+      - name: order_status
+        description: "Status of the order: can be completed, returned, or cancelled"
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+          - accepted_values:
+              arguments:
+                values: ['completed', 'returned', 'cancelled']
+              config:
+                severity: warn

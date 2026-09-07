@@ -1,0 +1,13 @@
+ShopGlo_Capstone:
+  outputs:
+    dev:
+      dataset: ShopGlo
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: EU
+      method: oauth
+      priority: interactive
+      project: "{{ env_var('DBT_SOURCE_PROJECT', 'pineapple-lords-dev-0001') }}"
+      threads: 4
+      type: bigquery
+  target: dev

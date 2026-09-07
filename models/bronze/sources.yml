@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: shopglo_source
+    database: "{{ env_var('DBT_SOURCE_PROJECT', 'pineapple-lords-dev-0001') }}"
+    schema: ShopGlo
+    tables:
+      - name: raw_customer
+      - name: raw_orders  
+      - name: raw_products
