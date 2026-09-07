@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: shopglo_source
     database: "{{ env_var('DBT_SOURCE_PROJECT', 'pineapple-lords-dev-0001') }}"
-    schema: ShopGlo
+    schema: "{{ env_var('DBT_DATASET', 'ShopGlo') }}"
     tables:
       - name: raw_customer
       - name: raw_orders  
