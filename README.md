@@ -1,6 +1,7 @@
 Welcome to your new dbt project!
 
 # Setting up your GCP free trial account
+IN AN INCOGNITO WINDOW ...
 Go to the Google Cloud Free Program page (https://cloud.google.com/free) and click the start or get started option.
 Sign in with your existing Google account or create a new Gmail account. 
 Select your country of residence and agree to the terms of service.
